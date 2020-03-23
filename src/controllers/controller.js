@@ -1,17 +1,17 @@
 'use strict';
 
 const jsonUtils = require('../utils/jsonUtils');
-const Service = require('../services/service');
+const ServiceClass = require('../services/service');
 
-class Controllers {
+class ControllerClass {
     constructor() {
     }
 
     getServices(req, res) {
-        const services = new Service().getServices(req.params.environment);
+        req.header('Access-Control-Allow-Origin', '*');
+        const services = new ServiceClass().getServices(req.params.environment);
         res.send(jsonUtils.prettyStringify(services));
     }
 }
 
-
-module.exports = Controllers;
+module.exports = ControllerClass;

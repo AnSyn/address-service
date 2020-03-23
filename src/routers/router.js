@@ -1,11 +1,11 @@
 'use strict';
 
 const express = require('express');
+const ControllerClass = require('../controllers/controller');
+
 const router = express.Router();
+const controller = new ControllerClass();
 
-const Controller = require('../controllers/controller');
-const controller = new Controller();
-
-router.post('/address/:environment', new Controller().getServices);
+router.get('/address/:environment', controller.getServices);
 
 module.exports = router;

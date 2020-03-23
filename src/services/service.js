@@ -1,13 +1,17 @@
 'use strict';
 
-class Services {
+class ServiceClass {
 
     constructor() {
     }
 
     getServices(environment) {
-        return [`https://ansyn-${environment}.com`];
+        return {
+            baseUrl: `https://ansyn-${environment}.com`,
+            auth: `https://ansyn-auth-${environment}.com`,
+            storageUrl: `https://ansyn-storage-service-${environment}.com`
+        }
     }
 }
 
-module.exports = Services;
+module.exports = ServiceClass;

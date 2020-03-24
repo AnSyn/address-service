@@ -7,9 +7,12 @@ class ServiceClass {
 
     getServices(environment) {
         return {
-            baseUrl: `https://ansyn-${environment}.com`,
-            auth: `https://ansyn-auth-${environment}.com`,
-            storageUrl: `https://ansyn-storage-service-${environment}.com`
+            layersManagerConfig: {
+                schema: "",
+            },
+            credentialsConfig: {
+                active: true
+            }
         }
     }
 }

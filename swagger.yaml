@@ -1,0 +1,47 @@
+swagger: "2.0"
+info:
+  description: "This is a Address-Service server that allows getting address's config by environment."
+  version: "1.0.0"
+  title: "Swagger Address-Service"
+  termsOfService: "None :)"
+  contact:
+    email: "test@ansyn.io"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "localhost:8080"
+basePath: "/api/v1"
+tags:
+  - name: "address"
+    description: "Everything about your address's"
+    externalDocs:
+      description: "Find out more"
+      url: "http://swagger.io"
+schemes:
+  - "http"
+paths:
+  /address/:environment:
+    get:
+      tags:
+        - "address"
+      summary: "Find address by ID"
+      description: "Returns a single environment"
+      operationId: "address:environment"
+      produces:
+        - "application/xml"
+        - "application/json"
+      parameters:
+        - name: "environment"
+          in: "path"
+          description: "environment of desired config"
+          required: true
+          type: "string"
+      responses:
+        200:
+          description: "successful operation"
+        400:
+          description: "Invalid environment supplied"
+        404:
+          description: "Address config not found"
+      security:
+        - api_key: []
